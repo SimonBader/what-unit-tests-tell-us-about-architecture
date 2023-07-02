@@ -2,7 +2,7 @@
 #include <gtest/gtest.h>
 #include "../src/SingleClassApp.h"
 
-namespace single_responsibility {
+namespace interface_segregation {
 
 using ::testing::AtLeast;
 using ::testing::Return;

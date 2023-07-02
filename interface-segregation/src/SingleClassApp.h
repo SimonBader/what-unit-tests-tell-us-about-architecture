@@ -1,7 +1,7 @@
 #pragma once
 
 #include "User.h"
-namespace single_responsibility {
+namespace interface_segregation {
 
 class SingleClassApp {
  public:

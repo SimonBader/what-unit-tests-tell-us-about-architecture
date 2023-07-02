@@ -1,0 +1,3 @@
+
+namespace interface_segregation {
+}

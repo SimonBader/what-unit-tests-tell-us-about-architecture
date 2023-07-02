@@ -1,6 +1,6 @@
 #include "SingleClassApp.h"
 
-namespace single_responsibility {
+namespace interface_segregation {
 
 SingleClassApp::SingleClassApp() {}
 

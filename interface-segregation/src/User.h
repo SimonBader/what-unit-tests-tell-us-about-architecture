@@ -1,6 +1,6 @@
 #pragma once
 
-namespace single_responsibility {
+namespace interface_segregation {
 
 class User {
  public:

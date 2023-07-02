@@ -1,3 +1,0 @@
-
-namespace single_responsibility {
-}
