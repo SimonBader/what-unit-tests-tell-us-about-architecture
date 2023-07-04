@@ -1,6 +1,5 @@
 #pragma once
 
-#include <memory>
 #include "Friend.h"
 
 namespace open_closed {
