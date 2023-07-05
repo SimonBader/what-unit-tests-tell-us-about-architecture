@@ -1,10 +1,9 @@
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
-#include "../src/BestFriend.h"
+#include "../src/SideEffect.h"
 
-namespace open_closed {
+namespace single_responsibility {
 
-using namespace open_closed;
 using ::testing::Return;
 
 class FriendMock : public Friend {
@@ -14,18 +13,17 @@ class FriendMock : public Friend {
 
 class FriendOfFriendMock : public FriendOfFriend {
  public:
-  MOCK_METHOD(std::string, CallName, (), (override));
+  MOCK_METHOD(void, SetNickname, (std::string), (override));
 };
 
-TEST(EggLayingWoolMilkPigTest, CallFriendOfFriendToTellTheName) {
+TEST(SideEffectTest, HowDoYouCallAFriendOfFriend) {
   std::shared_ptr<FriendOfFriendMock> friend_of_friend = std::make_shared<FriendOfFriendMock>();
   std::shared_ptr<FriendMock> my_friend = std::make_shared<FriendMock>();
-  EXPECT_CALL(*friend_of_friend, CallName()).WillOnce(Return("stranger"));
+  EXPECT_CALL(*friend_of_friend, SetNickname("stranger")).Times(1);
   EXPECT_CALL(*my_friend, GetFriend()).WillOnce(Return(friend_of_friend));
 
-  BestFriend sut(my_friend);
-
-  EXPECT_EQ("stranger", sut.CallFriendOfFriendToTellTheName());
-};
+  SideEffect sut(my_friend);
+  sut.HowDoYouCallAFriendOfFriend("stranger");
+}
 
 }

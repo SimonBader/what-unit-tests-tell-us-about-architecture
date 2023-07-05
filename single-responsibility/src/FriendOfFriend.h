@@ -1,14 +1,14 @@
 #pragma once
 
 #include <string>
-namespace open_closed {
+namespace single_responsibility {
 
 class FriendOfFriend {
  public:
   virtual ~FriendOfFriend();
-  virtual std::string CallName();
+  virtual void SetNickname(std::string name);
  private:
-  const std::string name = "Stranger";
+  std::string nickname;
 };
 
 }

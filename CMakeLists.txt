@@ -24,5 +24,4 @@ function(add_project NAME)
 endfunction()
 
 add_subdirectory(single-responsibility)
-add_subdirectory(open-closed)
 add_subdirectory(dependency-inversion)

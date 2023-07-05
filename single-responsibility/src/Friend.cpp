@@ -1,6 +1,6 @@
 #include "Friend.h"
 
-namespace open_closed {
+namespace single_responsibility {
 
 Friend::Friend() = default;
 

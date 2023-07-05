@@ -3,7 +3,7 @@
 #include <memory>
 #include "FriendOfFriend.h"
 
-namespace open_closed {
+namespace single_responsibility {
 
 class Friend {
  public:
