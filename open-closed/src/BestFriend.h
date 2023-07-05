@@ -9,7 +9,7 @@ class BestFriend {
  public:
   explicit BestFriend(const std::shared_ptr<Friend> &my_friend);
 
-  std::string CallFriend();
+  std::string CallFriendOfFriendToTellTheName();
 
  private:
   std::shared_ptr<Friend> _my_friend;

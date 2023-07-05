@@ -9,39 +9,39 @@ using ::testing::Return;
 
 class OneMock : public One {
  public:
-  MOCK_METHOD(bool, IsFirst, ());
+  MOCK_METHOD(bool, IsFirst, (), (override));
 };
 
 class TwoMock : public Two {
  public:
-  MOCK_METHOD(bool, IsEven, ());
+  MOCK_METHOD(bool, IsEven, (), (override));
 };
 
 class ThreeMock : public Three {
  public:
-  MOCK_METHOD(bool, IsFibonacci, ());
+  MOCK_METHOD(bool, IsFibonacci, (), (override));
 };
 
-TEST(EggLayingWoolMilkPigTest, IsOneFirstShouldBeTrue) {
+TEST(EggLayingWoolMilkPigTest, CallOne) {
   std::shared_ptr<OneMock> one = std::make_shared<OneMock>();
-  EXPECT_CALL(*one, IsFirst()).WillRepeatedly(Return(true));
+  EXPECT_CALL(*one, IsFirst()).WillOnce(Return(true));
 
   EggLayingWoolMilkPig sut(one, std::make_shared<TwoMock>(), std::make_shared<ThreeMock>());
 
-  EXPECT_TRUE(sut.IsOneFirst());
+  EXPECT_TRUE(sut.CallOne());
 }
 
-TEST(EggLayingWoolMilkPigTest, DoAllTogetherShouldBeRight) {
+TEST(EggLayingWoolMilkPigTest, DoEverything) {
   std::shared_ptr<OneMock> one = std::make_shared<OneMock>();
   std::shared_ptr<TwoMock> two = std::make_shared<TwoMock>();
   std::shared_ptr<ThreeMock> three = std::make_shared<ThreeMock>();
-  EXPECT_CALL(*one, IsFirst()).Times(AtLeast(1)).WillRepeatedly(Return(true));
-  EXPECT_CALL(*two, IsEven()).Times(AtLeast(1)).WillRepeatedly(Return(true));
-  EXPECT_CALL(*three, IsFibonacci()).Times(AtLeast(1)).WillRepeatedly(Return(true));
+  EXPECT_CALL(*one, IsFirst()).WillOnce(Return(true));
+  EXPECT_CALL(*two, IsEven()).WillOnce(Return(true));
+  EXPECT_CALL(*three, IsFibonacci()).WillOnce(Return(true));
 
   EggLayingWoolMilkPig sut(one, two, three);
 
-  EXPECT_EQ("right", sut.DoAllTogether());
+  EXPECT_EQ("right", sut.DoEverything());
 }
 
 }

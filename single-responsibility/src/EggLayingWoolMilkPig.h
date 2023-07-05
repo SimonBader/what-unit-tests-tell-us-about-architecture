@@ -12,10 +12,10 @@ class EggLayingWoolMilkPig {
   explicit EggLayingWoolMilkPig(const std::shared_ptr<One> &one,
                                 const std::shared_ptr<Two> &two,
                                 const std::shared_ptr<Three> &three);
-  bool IsOneFirst();
-  bool IsTwoEven();
-  bool IsThreeFibonacci();
-  std::string DoAllTogether();
+  bool CallOne();
+  bool CallTwo();
+  bool CallThree();
+  std::string DoEverything();
  private:
   std::shared_ptr<One> _one;
   std::shared_ptr<Two> _two;

@@ -11,19 +11,19 @@ EggLayingWoolMilkPig::EggLayingWoolMilkPig(
     const std::shared_ptr<Three> &three) : _one(one), _two(two), _three(three) {
 }
 
-bool EggLayingWoolMilkPig::IsOneFirst() {
+bool EggLayingWoolMilkPig::CallOne() {
   return _one->IsFirst();
 }
 
-bool EggLayingWoolMilkPig::IsTwoEven() {
+bool EggLayingWoolMilkPig::CallTwo() {
   return _two->IsEven();
 }
 
-bool EggLayingWoolMilkPig::IsThreeFibonacci() {
+bool EggLayingWoolMilkPig::CallThree() {
   return _three->IsFibonacci();
 }
 
-std::string EggLayingWoolMilkPig::DoAllTogether() {
+std::string EggLayingWoolMilkPig::DoEverything() {
   if (!_one->IsFirst())
     return "wrong";
   if (!_two->IsEven())
