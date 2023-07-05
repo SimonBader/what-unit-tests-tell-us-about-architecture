@@ -1,17 +1,16 @@
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
-#include "../src/SingleClassApp.h"
+#include "../src/Abstraction.h"
 
-namespace interface_segregation {
+namespace dependency_inversion {
 
 using ::testing::AtLeast;
 using ::testing::Return;
 
 TEST(SingleClassAppTest, RunShouldHandleSpecificEdgeCase) {
-  User user;
-  SingleClassApp sut;
+  Abstraction sut;
 
-  EXPECT_EQ(-1, sut.Run(user));
+  EXPECT_EQ(0, sut.Run());
 }
 
 }

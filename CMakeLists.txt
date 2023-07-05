@@ -25,4 +25,4 @@ endfunction()
 
 add_subdirectory(single-responsibility)
 add_subdirectory(open-closed)
-add_subdirectory(interface-segregation)
+add_subdirectory(dependency-inversion)
