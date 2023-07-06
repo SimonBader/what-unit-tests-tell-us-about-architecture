@@ -8,8 +8,7 @@ Processor::Processor() = default;
 Processor::~Processor() = default;
 
 int Processor::SumUp(const std::vector<int> &input) {
-  std::vector<int> output(input.size());
-  return std::reduce(output.begin(), output.end());
+  return std::reduce(input.begin(), input.end());
 }
 
 }

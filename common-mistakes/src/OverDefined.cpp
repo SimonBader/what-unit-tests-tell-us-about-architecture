@@ -7,8 +7,7 @@ OverDefined::OverDefined(const std::shared_ptr<Producer> &producer, const std::s
 
 }
 
-OverDefined::~OverDefined() {
-}
+OverDefined::~OverDefined() = default;
 
 int OverDefined::SumUp() {
   std::vector<int> input = _producer->Create();

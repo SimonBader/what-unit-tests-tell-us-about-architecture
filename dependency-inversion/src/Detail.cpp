@@ -2,8 +2,8 @@
 
 namespace dependency_inversion {
 
-dependency_inversion::Detail::Detail() {}
-Detail::~Detail() {}
+Detail::Detail() = default;
+Detail::~Detail() = default;
 
 int Detail::getNumber() {
   return 0;

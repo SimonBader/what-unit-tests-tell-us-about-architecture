@@ -22,6 +22,10 @@ bool EggLayingWoolMilkPig::CallThree() {
   return _three->IsFibonacci();
 }
 
+bool EggLayingWoolMilkPig::CallFour() {
+  return _four->ContainsEnoughEdgesForSquare();
+}
+
 std::string EggLayingWoolMilkPig::DoEverything() {
   if (!_one->IsFirst())
     return "wrong";
