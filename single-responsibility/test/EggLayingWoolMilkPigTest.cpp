@@ -23,12 +23,16 @@ class ThreeMock : public Three {
 };
 
 TEST(EggLayingWoolMilkPigTest, CallOne) {
+  // arrange
   std::shared_ptr<OneMock> one = std::make_shared<OneMock>();
   EXPECT_CALL(*one, IsFirst()).WillOnce(Return(true));
-
   EggLayingWoolMilkPig sut(one, std::make_shared<TwoMock>(), std::make_shared<ThreeMock>());
 
-  EXPECT_TRUE(sut.CallOne());
+  // act
+  bool actual = sut.CallOne();
+
+  // assert
+  EXPECT_TRUE(actual);
 }
 
 TEST(EggLayingWoolMilkPigTest, DoEverything) {
@@ -39,12 +43,13 @@ TEST(EggLayingWoolMilkPigTest, DoEverything) {
   EXPECT_CALL(*one, IsFirst()).WillOnce(Return(true));
   EXPECT_CALL(*two, IsEven()).WillOnce(Return(true));
   EXPECT_CALL(*three, IsFibonacci()).WillOnce(Return(true));
-
-  // act
   EggLayingWoolMilkPig sut(one, two, three);
 
+  // act
+  std::string result = sut.DoEverything();
+
   // assert
-  EXPECT_EQ("right", sut.DoEverything());
+  EXPECT_EQ("right", result);
 }
 
 }
