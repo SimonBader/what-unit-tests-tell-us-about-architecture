@@ -37,7 +37,7 @@ Isolate the "unit under test" by mocking its dependencies (solitary tests)
 ```c++
   // arrange
 std::shared_ptr<OneMock> one = std::make_shared<OneMock>();
-EXPECT_CALL(*one, IsFirst()).WillOnce(Return(true));
+ON_CALL(*one, IsFirst()).WillByDefault(Return(true));
 EggLayingWoolMilkPig sut(one, std::make_shared<TwoMock>(), std::make_shared<ThreeMock>(), std::make_shared<FourMock>());
 
 // act

@@ -30,7 +30,7 @@ class FourMock : public Four {
 TEST(EggLayingWoolMilkPigTest, CallOne) {
   // arrange
   std::shared_ptr<OneMock> one = std::make_shared<OneMock>();
-  EXPECT_CALL(*one, IsFirst()).WillOnce(Return(true));
+  ON_CALL(*one, IsFirst()).WillByDefault(Return(true));
   EggLayingWoolMilkPig sut(
       one,
       std::make_shared<TwoMock>(),
@@ -50,10 +50,10 @@ TEST(EggLayingWoolMilkPigTest, DoEverything) {
   std::shared_ptr<TwoMock> two = std::make_shared<TwoMock>();
   std::shared_ptr<ThreeMock> three = std::make_shared<ThreeMock>();
   std::shared_ptr<FourMock> four = std::make_shared<FourMock>();
-  EXPECT_CALL(*one, IsFirst()).WillOnce(Return(true));
-  EXPECT_CALL(*two, IsEven()).WillOnce(Return(true));
-  EXPECT_CALL(*three, IsFibonacci()).WillOnce(Return(true));
-  EXPECT_CALL(*four, ContainsEnoughEdgesForSquare()).WillOnce(Return(true));
+  ON_CALL(*one, IsFirst()).WillByDefault(Return(true));
+  ON_CALL(*two, IsEven()).WillByDefault(Return(true));
+  ON_CALL(*three, IsFibonacci()).WillByDefault(Return(true));
+  ON_CALL(*four, ContainsEnoughEdgesForSquare()).WillByDefault(Return(true));
   EggLayingWoolMilkPig sut(one, two, three, four);
 
   // act
