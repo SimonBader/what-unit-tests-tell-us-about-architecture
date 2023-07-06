@@ -6,3 +6,21 @@ You should become suspicious...
 -> ok, it could still be a facade
 * when you have to write a lot of expect statements
 
+## Side effects
+
+```plantuml
+@startuml
+  class SideEffect {
+    +void HowDoYouCallAFriendOfFriend(String)
+  }
+  class Friend {
+    +FriendOfFriend GetFriend()
+  }
+  class FriendOfFriend {
+    +void SetNickname(String)
+  }
+  SideEffect *-- Friend
+  Friend *-- FriendOfFriend
+@enduml
+```
+
