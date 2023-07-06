@@ -32,4 +32,17 @@ TEST(OverDefinedTest, SumUp) {
   EXPECT_EQ(60, actual);
 }
 
+TEST(OverDefinedTest, SumUpSimplified) {
+  // arrange
+  std::shared_ptr<ProcessorMock> processor = std::make_shared<ProcessorMock>();
+  ON_CALL(*processor, SumUp).WillByDefault(Return(60));
+  OverDefined sut(std::make_shared<ProducerMock>(), processor);
+
+  // act
+  int actual = sut.SumUp();
+
+  // assert
+  EXPECT_EQ(60, actual);
+}
+
 }
