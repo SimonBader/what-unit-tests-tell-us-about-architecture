@@ -1,3 +1,7 @@
-# Dependency inversion
-> * High-level modules should not import anything from low-level modules. Both should depend on abstractions (e.g., interfaces).
-> * Abstractions should not depend on details. Details (concrete implementations) should depend on abstractions.
+# Conclusion
+
+What is important:
+* invest time to clean up the unit test `arrange` block
+* keep in mind that `EXPECT_CALL`, `Times()`, `WillOnce()` are assertion statements as well
+* use the least amount of  
+* in case it cannot be further cleaned up, you might want to re-structure the implementation classes

@@ -4,8 +4,8 @@
 namespace common_mistakes {
 
 int main() {
-  auto app = std::make_shared<Abstraction>();
-  app->Run();
+  auto app = std::make_shared<OverDefined>(std::make_shared<Producer>(), std::make_shared<Processor>());
+  printf("%s", &"The sum of all parts is: "[app->SumUp()]);
   return 0;
 }
 

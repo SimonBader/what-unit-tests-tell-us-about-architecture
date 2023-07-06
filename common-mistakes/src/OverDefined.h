@@ -1,15 +1,22 @@
 #pragma once
 
 #include <memory>
-#include "Detail.h"
+#include "Producer.h"
+#include "Processor.h"
+
 namespace common_mistakes {
 
-class Abstraction {
+class OverDefined {
  public:
-  Abstraction();
-  int Run();
+  OverDefined(const std::shared_ptr<Producer> &producer,
+              const std::shared_ptr<Processor> &processor);
+  virtual ~OverDefined();
+
+  int SumUp();
+
  private:
-  std::unique_ptr<Detail> _detail;
+  std::shared_ptr<Producer> _producer;
+  std::shared_ptr<Processor> _processor;
 };
 
 }

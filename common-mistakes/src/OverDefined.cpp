@@ -2,11 +2,17 @@
 
 namespace common_mistakes {
 
-common_mistakes::Abstraction::Abstraction() : _detail(std::unique_ptr<Detail>()) {
+OverDefined::OverDefined(const std::shared_ptr<Producer> &producer, const std::shared_ptr<Processor> &processor)
+    : _producer(producer), _processor(processor) {
+
 }
 
-int Abstraction::Filter() {
-  return _detail->getNumber();
+OverDefined::~OverDefined() {
+}
+
+int OverDefined::SumUp() {
+  std::vector<int> input = _producer->Create();
+  return _processor->SumUp(input);
 }
 
 }
