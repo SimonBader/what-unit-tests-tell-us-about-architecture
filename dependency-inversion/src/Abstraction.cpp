@@ -2,7 +2,7 @@
 
 namespace dependency_inversion {
 
-dependency_inversion::Abstraction::Abstraction() : _detail(std::unique_ptr<Detail>()) {
+Abstraction::Abstraction() : _detail(std::unique_ptr<Detail>()) {
 }
 
 int Abstraction::Run() {

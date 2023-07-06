@@ -1,8 +1,7 @@
 #pragma once
 
 #include <string>
-
-namespace dependency_inversion {
+namespace common_mistakes {
 
 class Detail {
  public:

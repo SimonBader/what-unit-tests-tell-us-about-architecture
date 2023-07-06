@@ -2,8 +2,7 @@
 
 #include <memory>
 #include "Detail.h"
-
-namespace dependency_inversion {
+namespace common_mistakes {
 
 class Abstraction {
  public:

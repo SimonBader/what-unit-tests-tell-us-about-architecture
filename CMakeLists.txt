@@ -25,3 +25,4 @@ endfunction()
 
 add_subdirectory(single-responsibility)
 add_subdirectory(dependency-inversion)
+add_subdirectory(common-mistakes)

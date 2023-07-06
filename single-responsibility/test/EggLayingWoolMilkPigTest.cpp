@@ -32,6 +32,7 @@ TEST(EggLayingWoolMilkPigTest, CallOne) {
 }
 
 TEST(EggLayingWoolMilkPigTest, DoEverything) {
+  // arrange
   std::shared_ptr<OneMock> one = std::make_shared<OneMock>();
   std::shared_ptr<TwoMock> two = std::make_shared<TwoMock>();
   std::shared_ptr<ThreeMock> three = std::make_shared<ThreeMock>();
@@ -39,8 +40,10 @@ TEST(EggLayingWoolMilkPigTest, DoEverything) {
   EXPECT_CALL(*two, IsEven()).WillOnce(Return(true));
   EXPECT_CALL(*three, IsFibonacci()).WillOnce(Return(true));
 
+  // act
   EggLayingWoolMilkPig sut(one, two, three);
 
+  // assert
   EXPECT_EQ("right", sut.DoEverything());
 }
 
