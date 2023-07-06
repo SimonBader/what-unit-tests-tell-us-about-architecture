@@ -12,6 +12,7 @@ There is one more aspect about unit tests that allows us to gain insight into th
     +void CallOne()
     +void CallTwo()
     +void CallThree()
+    +void CallFour()
     +void DoEverything()
   }
     class One {
@@ -20,9 +21,12 @@ There is one more aspect about unit tests that allows us to gain insight into th
   }
   class Three {
   }
+  class Four {
+  }
   EggLayingWoolMilkPig *-- One
   EggLayingWoolMilkPig *-- Two
   EggLayingWoolMilkPig *-- Three
+  EggLayingWoolMilkPig *-- Four
 @enduml
 ```
 ## Model the classes in unit tests
@@ -34,7 +38,7 @@ Isolate the "unit under test" by mocking its dependencies (solitary tests)
   // arrange
 std::shared_ptr<OneMock> one = std::make_shared<OneMock>();
 EXPECT_CALL(*one, IsFirst()).WillOnce(Return(true));
-EggLayingWoolMilkPig sut(one, std::make_shared<TwoMock>(), std::make_shared<ThreeMock>());
+EggLayingWoolMilkPig sut(one, std::make_shared<TwoMock>(), std::make_shared<ThreeMock>(), std::make_shared<FourMock>());
 
 // act
 bool actual = sut.CallOne();
